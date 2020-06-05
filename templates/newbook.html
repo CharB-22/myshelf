@@ -1,0 +1,66 @@
+{% extends "layout.html" %}
+
+{% block title %}Add a book{% endblock %}
+
+{% block main %}
+    <form  class="form-main" action="/newbook" method="post">
+        <div>
+            <input autocomplete="off" autofocus id="title" class="form-field" name="title" placeholder="Title" type="text">
+        </div>
+        <div>
+            <input autocomplete="off" autofocus id= "author" class="form-field" name="author" placeholder="Author" type="text">
+        </div>
+        <div>
+            <select class="form-field" name="status" type="text">
+                <option value="bought">Bought</option>
+                <option value="borrowed">Borrowed</option>
+            </select>
+        </div>
+        <div>
+            <input autocomplete="off" autofocus id="description" class="form-field" name="description" placeholder="Description" type="text">
+        </div>
+        <button id="myBtn" class="button-form" type="submit">Add a new book</button>
+    </form>
+    <br><br>
+    <a href="/">See my bookshelf</a>
+{% endblock %}
+{% block script %}
+<script>
+    let title_field = document.querySelector("#title")
+    let author_field = document.querySelector("#author")
+    let description_field = document.querySelector("#description")
+    let button = document.querySelector("#myBtn")
+    let field = document.querySelectorAll(".form-field")
+    button.disabled = true;
+
+    title_field.onkeyup = function() {
+        if (title_field.value === '' && author_field.value ==='' && description_field.value ===''){
+            return button.disabled = true;
+        } else if (title_field.value === '' || author_field.value ==='' || description_field.value ===''){
+            return button.disabled = true;
+        } else{
+            return button.disabled = false;
+        }
+    }
+
+    author_field.onkeyup = function() {
+        if (title_field.value === '' && author_field.value ==='' && description_field.value ===''){
+            return button.disabled = true;
+        } else if (title_field.value === '' || author_field.value ==='' || description_field.value ===''){
+            return button.disabled = true;
+        } else{
+            return button.disabled = false;
+        }
+    }
+
+    description_field.onkeyup = function() {
+        if (title_field.value === '' && author_field.value ==='' && description_field.value ===''){
+            return button.disabled = true;
+        } else if (title_field.value === '' || author_field.value ==='' || description_field.value ===''){
+            return button.disabled = true;
+        } else{
+            return button.disabled = false;
+        }
+    }
+</script>
+{% endblock %}

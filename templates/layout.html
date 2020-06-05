@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Myshelf : {% block title %}{% endblock %}</title>
+        <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;1,100;1,200;1,300;1,400;1,500&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+        <link rel="shortcut icon" href="../static/openbook.png" type="image/x-icon">
+    </head>
+    <body>
+        <div class="content">
+            <header>
+                <div class="header">
+                    <img src="../static/book.png">
+                    <h1>MyShelf</h1>
+                </div>
+                <div class="nav">
+                    {% if session.user_id %}
+                        <ul class="nav-bar left">
+                            <li><a href="/">Bookshelf</a></li>
+                            <li>|</li>
+                            <li><a href="/search">Search a book</a></li>
+                            <li>|</li>
+                            <li><a href="/newbook">Add a book</a></li>
+                            <li>|</li>
+                            <li><a href="/friend">Add a friend</a></li>
+                            <li>|</li>
+                            <li><a href="/give">Give a book</a></li>
+                        </ul>
+                        {% else %}
+                        <ul class="nav-bar left">
+                            <li><a href="/login">Login</a></li>
+                            <li>|</li>
+                            <li><a href="/register">Register</a></li>
+                        </ul>
+                        {% endif %}
+                </div>
+            </header>
+            <main class="main-content">
+                {% block main %}{% endblock %}
+            </main>
+            <footer>
+                <a href="/logout">Logout</a>
+            </footer>
+        </div>
+        {% block script %}{% endblock %}
+    </body>
+</html>

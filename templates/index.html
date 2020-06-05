@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block title %}Homepage{% endblock %}
+
+{% block main %}
+    <div class="bookshelf">
+        {% for book in bookshelves %}
+            <div class="book">
+                <div class="title">{{ book }}</div>
+            </div>
+        {% endfor %}
+    </div>
+    <script>
+        let book = document.querySelectorAll(".book");
+        console.log(book)
+        colorArray = ["#FEAD89", "#BC85AE3", "#9799BA", "#BC85A3", "#ADDDCE", "#70AE98", "#E6B655", "#F0A35E", "#CA7E8D", "#8AC0DE", "#F0C5D5", "#F5C9B2", "#EAB159", "#9E6B55"];
+
+        //randomly pick a color among the color array
+        function random_color(color){
+            return color[Math.floor(Math.random()* color.length)]
+        }
+
+        // Loop through the div book and randomly assign a color background to it
+        for (let i = 0; i < book.length; i++){
+            let bookColor = random_color(colorArray);
+            book[i].style.backgroundColor = bookColor;
+            console.log(bookColor);
+            console.log(book[i].style.backgroundColor)
+        }
+    </script>
+{% endblock %}

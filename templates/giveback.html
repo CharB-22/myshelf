@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+{% block title %}Give back a book{% endblock %}
+
+{% block main %}
+    <form  class="form-main" action="/giveback" method="post">
+        <div>
+            <select class="form-field" name="book" placeholder="Select a book" type="text">
+                {% for book in books %}
+                    <option value="{{ book }}">{{ book }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <button class="button-form" type="submit">Give Back</button>
+    </form>
+{% endblock %}

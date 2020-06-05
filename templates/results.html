@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+{% block title %}Your search results{% endblock %}
+
+{% block main %}
+    <div class="book-result">
+        {% for book in results %}
+            <h2>{{ book[1] }}</h2>
+            <p class="book-author">by {{ book[2] }}</p>
+            <p class="book-description"> {{ book[3] }}</p>
+            <p class="book-status"> Status: {{ book[4] }}</p>
+            <p class="book-status"> Currently with: {{ book[6] }}</p>
+            <div class="book-divide">*****</div>
+        {% endfor %}
+    </div>
+{% endblock %}

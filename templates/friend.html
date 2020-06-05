@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block title %}Friends{% endblock %}
+
+{% block main %}
+    <form  class="form-main" action="/friend" method="post">
+        <div>
+            <input autocomplete="off" autofocus id="search-friend" class="form-field" name="search_friend" placeholder="Search a friend" type="text">
+        </div>
+        <button id="myBtn" class="button-form" type="submit">Add friend</button>
+    </form>
+{% endblock %}
+{% block script %}
+<script>
+    let friend_field = document.querySelector("#search-friend")
+    let button = document.querySelector("#myBtn")
+    button.disabled = true;
+
+    friend_field.onkeyup = function() {
+        if (friend_field.value === ''){
+            return button.disabled = true;
+        } else{
+            return button.disabled = false;
+        }
+    }
+
+</script>
+{% endblock %}

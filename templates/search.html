@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block title %}Search{% endblock %}
+
+{% block main %}
+    <form  class="form-main" action="/search" method="post">
+        <div>
+            <input autocomplete="off" autofocus id="search" class="form-field" name="search" placeholder="Find a book in your bookshelf" type="text">
+        </div>
+        <button id="myBtn" class="button-form" type="submit">Search</button>
+    </form>
+{% endblock %}
+{% block script %}
+<script>
+    let search_field = document.querySelector("#search")
+    let button = document.querySelector("#myBtn")
+    button.disabled = true;
+
+    search_field.onkeyup = function() {
+        if (search_field.value === ''){
+            return button.disabled = true;
+        } else{
+            return button.disabled = false;
+        }
+    }
+</script>
+{% endblock %}

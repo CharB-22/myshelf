@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+{% block title %}Register{% endblock %}
+
+{% block main %}
+    <form  class="form-main" action="/register" method="post">
+        <div>
+            <input autocomplete="off" autofocus id="username" class="form-field" name="username" placeholder="Username" type="text">
+        </div>
+        <div>
+            <input id="password" class="form-field" name="password" placeholder="Password" type="password">
+        </div>
+        <div>
+            <input class="form-field" name="confirmation" placeholder="Confirmation" type="password">
+        </div>
+        <button id="myBtn" class="button-form" type="submit">Register</button>
+    </form>
+{% endblock %}
+{% block script %}
+<script>
+    let name_field = document.querySelector("#username")
+    let password_field = document.querySelector("#password")
+    let button = document.querySelector("#myBtn")
+    button.disabled = true;
+
+    name_field.onkeyup = function() {
+        if (name_field.value === '' && password_field.value ===''){
+            return button.disabled = true;
+        } else if (name_field.value === '' || password_field.value ===''){
+            return button.disabled = true;
+        } else{
+            return button.disabled = false;
+        }
+    }
+
+    password_field.onkeyup = function() {
+        if (name_field.value === '' && password_field.value ===''){
+            return button.disabled = true;
+        } else if (name_field.value === '' || password_field.value ===''){
+            return button.disabled = true;
+        } else{
+            return button.disabled = false;
+        }
+    }
+</script>
+{% endblock %}
